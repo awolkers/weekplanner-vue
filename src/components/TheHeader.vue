@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <h1 class="header__heading">{title}</h1>
+        <h1 class="header__heading">{{ title }}</h1>
         <p class="header__subheading">{moment().format('MMMM YYYY')} - Week {moment().format('w')}</p>
         <ul class="header__nav">
             <li class="header__nav-item">
@@ -12,6 +12,18 @@
         </ul>
     </header>
 </template>
+
+<script>
+export default {
+    name: 'the-header',
+
+    computed: {
+        title() {
+            return this.$store.state.global.title
+        }
+    }
+}
+</script>
 
 <style lang="scss">
 .header {
